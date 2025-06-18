@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Pride and Prejudice",
+    "desc": "A timeless romance novel by Jane Austen, exploring themes of love and social standing.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "price": 0,
+    "category": "free"
+  },
+  {
+    "id": 2,
+    "name": "Jane Eyre",
+    "desc": "A gothic romance novel by Charlotte Brontë, following the life of the orphaned Jane Eyre.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "price": 0,
+    "category": "free"
+  },
+  {
+    "id": 3,
+    "name": "Persuasion",
+    "desc": "A romantic novel by Jane Austen about second chances and enduring love.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "price": 0,
+    "category": "free"
+  },
+  {
+    "id": 4,
+    "name": "Wuthering Heights",
+    "desc": "An intense tale of love and revenge by Emily Brontë, set on the Yorkshire moors.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "price": 0,
+    "category": "free"
+  },
+  {
+    "id": 5,
+    "name": "Emma",
+    "desc": "A lighthearted romantic comedy by Jane Austen, centered around the matchmaking Emma Woodhouse.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "price": 0,
+    "category": "free"
+  },
+  {
+    "id": 6,
+    "name": "North and South",
+    "desc": "A romance and social novel by Elizabeth Gaskell, depicting love across class divides.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "price": 0,
+    "category": "free"
+  }
+]
