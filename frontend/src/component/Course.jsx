@@ -1,10 +1,28 @@
 import React from 'react'
 import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
-import list from "../../public/list.json"
+
+import axios from "axios"
+import { useState , useEffect } from 'react'
 
 function Course() {
-   const filterdata = list;
+   const [book, setbook] = useState([])
+   useEffect(() => {
+     const getBook=async ()=>{
+      try {
+      const res = await axios.get("http://localhost:4001/book")
+        console.log( res.data)
+        setbook(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+      
+     }
+   
+    getBook();
+   }, [])
+   
+   
 
   return (
     <>
@@ -20,7 +38,7 @@ function Course() {
     or build your personal library — you’re in the right place. Happy reading! 
           </p>
      <div className='flex  flex-wrap'>
-          {filterdata.map((item)=>
+          {book.map((item)=>
 
          ( 
           

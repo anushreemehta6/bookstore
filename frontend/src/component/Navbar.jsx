@@ -31,7 +31,7 @@ function Navbar() {
           <div className="navbar-end gap-5">
             <input type="text" placeholder="Search" className= {`input input-bordered w-24 md:w-auto hidden md:block  ` }/>
                 
-                <button className='cursor-pointer'><img src={wishIcon} alt="wishlist" width={30} height={30} /></button>
+                <button className='cursor-pointer'><a href="/wish"><img src={wishIcon} alt="wishlist" width={30} height={30} /></a></button>
             <a className="btn bg-[#e8bad0] text-black"  onClick={()=>document.getElementById('my_modal_3').showModal()} >Login</a> 
             <Login/>
           </div>

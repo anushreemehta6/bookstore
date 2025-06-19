@@ -6,6 +6,7 @@ import Course from './component/Course';
 import Signup from './component/Signup';
 import Contact from './component/Contact';
 import About from './component/About';
+import Wish from './component/Wish';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/about" element={<About/>} />
+        <Route path="/wish" element={<Wish />} />
       </Routes>
     </BrowserRouter>
   )
