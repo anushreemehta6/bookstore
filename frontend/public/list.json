@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Pride and Prejudice",
     "desc": "A timeless romance novel by Jane Austen, exploring themes of love and social standing.",
-    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
     "price": 0,
     "category": "free"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "name": "Jane Eyre",
     "desc": "A gothic romance novel by Charlotte Brontë, following the life of the orphaned Jane Eyre.",
-    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
     "price": 0,
     "category": "free"
   },
@@ -19,32 +19,104 @@
     "id": 3,
     "name": "Persuasion",
     "desc": "A romantic novel by Jane Austen about second chances and enduring love.",
-    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
     "price": 0,
     "category": "free"
   },
   {
     "id": 4,
-    "name": "Wuthering Heights",
-    "desc": "An intense tale of love and revenge by Emily Brontë, set on the Yorkshire moors.",
-    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
-    "price": 0,
-    "category": "free"
+    "name": "The Great Gatsby",
+    "desc": "A classic novel by F. Scott Fitzgerald that explores the American Dream and tragic love.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 299,
+    "category": "fiction"
   },
   {
     "id": 5,
-    "name": "Emma",
-    "desc": "A lighthearted romantic comedy by Jane Austen, centered around the matchmaking Emma Woodhouse.",
-    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "name": "Wuthering Heights",
+    "desc": "An intense tale of love and revenge by Emily Brontë, set on the Yorkshire moors.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
     "price": 0,
     "category": "free"
   },
   {
     "id": 6,
-    "name": "North and South",
-    "desc": "A romance and social novel by Elizabeth Gaskell, depicting love across class divides.",
-    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg?ga=GA1.1.1927374211.1750248393&semt=ais_hybrid&w=740",
+    "name": "The Night Circus",
+    "desc": "A fantasy novel by Erin Morgenstern about a magical competition between two young illusionists.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 349,
+    "category": "fantasy"
+  },
+  {
+    "id": 7,
+    "name": "Emma",
+    "desc": "A lighthearted romantic comedy by Jane Austen, centered around the matchmaking Emma Woodhouse.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
     "price": 0,
     "category": "free"
+  },
+  {
+    "id": 8,
+    "name": "The Da Vinci Code",
+    "desc": "A fast-paced mystery thriller by Dan Brown filled with secrets and historical intrigue.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 399,
+    "category": "mystery"
+  },
+  {
+    "id": 9,
+    "name": "North and South",
+    "desc": "A romance and social novel by Elizabeth Gaskell, depicting love across class divides.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 0,
+    "category": "free"
+  },
+  {
+    "id": 10,
+    "name": "The Alchemist",
+    "desc": "An inspiring story by Paulo Coelho about following your dreams and listening to your heart.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 249,
+    "category": "fiction"
+  },
+  {
+    "id": 11,
+    "name": "Me Before You",
+    "desc": "A moving love story by Jojo Moyes about life, love, and unexpected journeys.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 199,
+    "category": "romance"
+  },
+  {
+    "id": 12,
+    "name": "A Court of Thorns and Roses",
+    "desc": "A fantasy romance by Sarah J. Maas blending magic, fae worlds, and forbidden love.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 499,
+    "category": "fantasy"
+  },
+  {
+    "id": 13,
+    "name": "Gone Girl",
+    "desc": "A psychological thriller by Gillian Flynn with twists and dark secrets.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 349,
+    "category": "mystery"
+  },
+  {
+    "id": 14,
+    "name": "Little Women",
+    "desc": "A classic novel by Louisa May Alcott following the lives of the four March sisters.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 0,
+    "category": "free"
+  },
+  {
+    "id": 15,
+    "name": "It Ends with Us",
+    "desc": "A contemporary romance novel by Colleen Hoover dealing with love and resilience.",
+    "img": "https://img.freepik.com/free-vector/into-unknown-wattpad-book-cover_23-2149452348.jpg",
+    "price": 299,
+    "category": "romance"
   }
 ]

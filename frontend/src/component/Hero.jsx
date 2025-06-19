@@ -1,10 +1,13 @@
 import React from 'react'
+import { useState } from 'react'
 
 function hero() {
+   
+    
     return (
         <>
           
-            <div className="hero  max-w-screen-2xl mx-auto md:px-20 px-4 min-h-screen">
+            <div className={`hero  max-w-screen-2xl mx-auto md:px-20 px-4 min-h-screen `}>
                 <div className="hero-content flex " >
 
                     <div>
@@ -31,8 +34,8 @@ function hero() {
                         <button className="btn bg-[#e8bad0] text-black mx-5">Get Started</button>
                     </div>
                     <div>  <img
-                        src="/src/assets/image.png"
-                        className="max-w-lg   hidden md:block rounded-lg shadow-2xl "
+                        src="/src/assets/bg.png"
+                        className="max-w-lg   hidden md:block rounded-lg  "
                     /></div>
 
                 </div>

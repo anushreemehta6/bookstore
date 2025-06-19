@@ -1,21 +1,21 @@
 import { useState } from 'react'
-import Navbar from './component/Navbar'
 import './App.css'
-import Hero from './component/Hero'
-import Footer from './component/Footer'
-import Freebook from './component/Freebook'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './home/home';
+import Course from './component/Course'; 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-     <Navbar/>
-     <Hero/>
-     <Freebook/>
-     <Footer/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/books" element={<Course />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
 export default App
+
