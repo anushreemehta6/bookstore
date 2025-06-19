@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState , useEffect} from 'react'
 import wishIcon from '../assets/wish.svg'; 
+import Login from './Login';
 
 function Navbar() {
  
@@ -16,14 +17,14 @@ function Navbar() {
         <div className= {`navbar bg-base-100  shadow-[#e8bad0]    `}>
           <div className="navbar-start">
            
-            <a className="btn btn-ghost text-xl bg-[#e8bad0] text-black">Love Between Pages</a>
+            <a href='/' className="btn btn-ghost text-xl bg-[#e8bad0] text-black">Love Between Pages</a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               <li><a href='/'>Home</a></li>
               <li><a href='/books'>Books</a></li>
-              <li><a>Contact</a></li>
-              <li><a>About</a></li>
+              <li><a href='/contact'> Contact</a></li>
+              <li><a href='/about'>About</a></li>
             </ul>
           </div>
 
@@ -31,7 +32,8 @@ function Navbar() {
             <input type="text" placeholder="Search" className= {`input input-bordered w-24 md:w-auto hidden md:block  ` }/>
                 
                 <button className='cursor-pointer'><img src={wishIcon} alt="wishlist" width={30} height={30} /></button>
-            <a className="btn bg-[#e8bad0] text-black">Login</a>
+            <a className="btn bg-[#e8bad0] text-black"  onClick={()=>document.getElementById('my_modal_3').showModal()} >Login</a> 
+            <Login/>
           </div>
         </div>
         <hr />
