@@ -1,18 +1,52 @@
-import React from 'react'
-import { useState ,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
-import axios from 'axios'
+import axios from 'axios';
+
 function Freebook() {
-   const handleAddToWishlist = async (item) => {
+  const [book, setBook] = useState([]);
+
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await axios.get("http://localhost:4001/book");
+        console.log(res.data);
+        // Filter only free books
+        setBook(res.data.filter((data) => data.category === 'free'));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getBook();
+  }, []);
+
+  const handleAddToWishlist = async (item) => {
   try {
-    const res = await axios.post("http://localhost:4001/wishlist", item);
-    console.log(res.data);  // optional: show success message
+    // Check if already in wishlist
+    const existing = await axios.get(`http://localhost:4001/wishlist?id=${item.id}`);
+    if (existing.data.length > 0) {
+      console.log('Already in wishlist');
+      return;
+    }
+
+    // Add to wishlist
+    const res = await axios.post("http://localhost:4001/wishlist", {
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      category: item.category,
+      desc: item.desc,
+      img: item.img
+    });
+
+    console.log('Added to wishlist:', res.data);
   } catch (err) {
     console.log(err);
   }
 };
 
-   const settings = {
+
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -25,89 +59,92 @@ function Freebook() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
-    // const filterdata = list.filter((data) => data.category === 'free');
 
-    const [book, setbook] = useState([])
-   useEffect(() => {
-     const getBook=async ()=>{
-      try {
-      const res = await axios.get("http://localhost:4001/book")
-       
-        console.log( res.data)
-        setbook(res.data.filter((data) => data.category === 'free'))
-      } catch (error) {
-        console.log(error)
-      }
-      
-     }
-   
-    getBook();
-   }, [])
-    
-    
-    return (
-        <div className='max-w-screen-2xl mx-auto md:px-20 px-4 flex flex-col gap-3'>
-            <h1 className='text-3xl font-bold text-[#e8bad0]'>Free books only for you- </h1>
-            <p className="py-6 text-sm md:text-xl">Welcome to your personal bookshelf of free reads! Dive into enchanting romances, gripping fiction, and timeless tales — all handpicked for book lovers like you. Whether you're in the mood for a heartwarming love story or an exciting adventure, these stories are yours to explore. No cost, just pure reading joy. Start your journey today! </p>
-        
-        <div className='slider-container'>
-    <Slider className=" card bg-base-100 m-5  " {...settings}>
-           {book.map((item)=>
+  return (
+    <div className="max-w-screen-2xl mx-auto md:px-20 px-4 flex flex-col gap-3">
+      <h1 className="text-3xl font-bold text-[#e8bad0]">Free books only for you -</h1>
+      <p className="py-6 text-sm md:text-xl">
+        Welcome to your personal bookshelf of free reads! Dive into enchanting romances,
+        gripping fiction, and timeless tales — all handpicked for book lovers like you.
+        Whether you're in the mood for a heartwarming love story or an exciting adventure,
+        these stories are yours to explore. No cost, just pure reading joy. Start your journey today!
+      </p>
 
-         ( 
+      <div className="slider-container">
+        <Slider className="card bg-base-100 m-5" {...settings}>
+          {book.map((item) => (
             <div key={item.id}>
-             
-             <div  className=" card bg-base-100 w-96 border-4 border-[#897a92] ">
+              <div className="card bg-base-100 w-96 border-4 border-[#897a92]">
                 <figure>
-                  <img src={item.img} alt="" />
+                  <img src={item.img} alt={item.name} />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">
-                        {item.name}
-                        <div className="badge badge-secondary">{item.category}</div>
-                    </h2>
-                    <p>{item.desc}</p>
-                    <div className="card-actions justify-around items-center">
-                      <div> <div className=" p-2   text-black text-xl rounded-md"> <button onClick={() => handleAddToWishlist(item)} className='hover:bg-slate-500 bg-pink-500 p-1 rounded-md'><svg width={35} fill="#ffffff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M36.064,64.68L36.064,64.68c-2.206,0-3.896-1.436-4.976-2.516C28.535,59.611,10.955,38.448,9.6,36.815 C6.413,33.594,4.66,29.342,4.66,24.832c0-4.542,1.778-8.822,5.007-12.05l0.454-0.454c3.228-3.229,7.521-5.007,12.087-5.007 c4.565,0,8.858,1.778,12.087,5.007c0.074,0.074,0.143,0.154,0.204,0.239c0.002,0,0.579,0.717,1.501,0.717 c0.966,0,1.399-0.571,1.445-0.636c0.082-0.135,0.147-0.208,0.26-0.32c3.229-3.229,7.521-5.007,12.087-5.007 c4.566,0,8.859,1.778,12.087,5.007l0.454,0.454c3.229,3.228,5.007,7.508,5.007,12.05c0,4.509-1.752,8.759-4.936,11.979 c-1.353,1.646-18.424,22.416-21.362,25.354C39.962,63.245,38.271,64.68,36.064,64.68z M22.208,11.32 c-3.498,0-6.786,1.362-9.259,3.835l-0.454,0.454c-2.473,2.473-3.835,5.748-3.835,9.222c0,3.474,1.362,6.749,3.835,9.222 c0.044,0.043,0.085,0.089,0.125,0.137c6.502,7.833,19.32,23.169,21.297,25.146c0.892,0.892,1.614,1.344,2.147,1.344 c0.665,0,1.536-0.73,2.149-1.344c2.286-2.287,14.841-17.443,21.159-25.138c0.042-0.051,0.086-0.099,0.132-0.145 c2.473-2.473,3.835-5.749,3.835-9.222c0-3.474-1.362-6.749-3.835-9.222l-0.454-0.454c-2.473-2.473-5.761-3.835-9.259-3.835 c-3.442,0-6.683,1.32-9.142,3.72c-0.491,0.657-1.955,2.243-4.65,2.243c-2.584,0-4.154-1.648-4.612-2.207 C28.924,12.653,25.668,11.32,22.208,11.32z"></path> </g> <g> <g> <path d="M13.368,23.674c-0.088,0-0.178-0.012-0.267-0.036c-0.532-0.146-0.845-0.697-0.698-1.229 c0.472-1.718,1.395-3.298,2.666-4.569l0.281-0.281c2.549-2.549,6.171-3.582,9.685-2.763c0.538,0.125,0.873,0.663,0.747,1.201 c-0.125,0.538-0.666,0.871-1.2,0.747c-2.841-0.661-5.762,0.171-7.817,2.229l-0.281,0.281c-1.027,1.027-1.771,2.301-2.152,3.686 C14.209,23.382,13.807,23.674,13.368,23.674z"></path> </g> <g> <path d="M29.292,19.265c-0.256,0-0.512-0.098-0.707-0.293c-0.335-0.335-0.7-0.643-1.086-0.917 c-0.451-0.319-0.557-0.943-0.237-1.394c0.318-0.451,0.942-0.558,1.394-0.238c0.478,0.338,0.93,0.72,1.344,1.134 c0.391,0.391,0.391,1.023,0,1.414C29.804,19.167,29.548,19.265,29.292,19.265z"></path> </g> </g> </g> </g></svg></button></div></div>
-                      <div className='flex gap-5'>  <div className=" p-2  bg-[#e8bad0] text-black text-xl rounded-md">{`₹ ${item.price}`}</div>
-                       <button className=' p-2 bg-[#e8bad0] text-black text-xl rounded-md cursor-pointer'>Buy Now</button>
-                        </div>
-                       
+                  <h2 className="card-title">
+                    {item.name}
+                    <div className="badge badge-secondary">{item.category}</div>
+                  </h2>
+                  <p>{item.desc}</p>
+                  <div className="card-actions justify-around items-center">
+                    <div>
+                      <button
+                        onClick={() => handleAddToWishlist(item)}
+                        className="hover:bg-slate-500 bg-pink-500 p-2 rounded-md"
+                      >
+                        <svg
+                          width={35}
+                          fill="#ffffff"
+                          version="1.1"
+                          id="Layer_1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 72 72"
+                          stroke="#ffffff"
+                        >
+                          <g>
+                            <path d="M36.064,64.68c-2.206,0-3.896-1.436-4.976-2.516C28.535,59.611,10.955,38.448,9.6,36.815
+                            C6.413,33.594,4.66,29.342,4.66,24.832c0-4.542,1.778-8.822,5.007-12.05l0.454-0.454c3.228-3.229,7.521-5.007,12.087-5.007
+                            c4.565,0,8.858,1.778,12.087,5.007c0.074,0.074,0.143,0.154,0.204,0.239c0.002,0,0.579,0.717,1.501,0.717
+                            c0.966,0,1.399-0.571,1.445-0.636c0.082-0.135,0.147-0.208,0.26-0.32c3.229-3.229,7.521-5.007,12.087-5.007
+                            c4.566,0,8.859,1.778,12.087,5.007l0.454,0.454c3.229,3.228,5.007,7.508,5.007,12.05c0,4.509-1.752,8.759-4.936,11.979
+                            c-1.353,1.646-18.424,22.416-21.362,25.354C39.962,63.245,38.271,64.68,36.064,64.68z"/>
+                          </g>
+                        </svg>
+                      </button>
                     </div>
+                    <div className="flex gap-5">
+                      <div className="p-2 bg-[#e8bad0] text-black text-xl rounded-md">{`₹ ${item.price}`}</div>
+                      <button className="p-2 bg-[#e8bad0] text-black text-xl rounded-md cursor-pointer">
+                        Buy Now
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                
+              </div>
             </div>
-            </div>
-            
-         )
-           )}
-
-           </Slider>
-           </div>
-
-          
-        </div>
-    )
+          ))}
+        </Slider>
+      </div>
+    </div>
+  );
 }
 
-export default Freebook
+export default Freebook;
