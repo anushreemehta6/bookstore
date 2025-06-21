@@ -27,6 +27,7 @@ function Login() {
       console.log(res.data)
       if(res.data){
         toast.success('login successfull');
+        window.location.reload()
         localStorage.setItem("Users",JSON.stringify(res.data))
       }
     }).catch((err)=>{

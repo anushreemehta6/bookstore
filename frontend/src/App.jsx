@@ -8,9 +8,9 @@ import Contact from './component/Contact';
 import About from './component/About';
 import Wish from './component/Wish';
 import  { Toaster } from 'react-hot-toast';
-
+  
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <BrowserRouter>
