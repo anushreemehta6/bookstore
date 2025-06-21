@@ -23,11 +23,11 @@ function Freebook() {
   const handleAddToWishlist = async (item) => {
   try {
     // Check if already in wishlist
-    const existing = await axios.get(`http://localhost:4001/wishlist?id=${item.id}`);
-    if (existing.data.length > 0) {
-      console.log('Already in wishlist');
-      return;
-    }
+    // const existing = await axios.get(`http://localhost:4001/wishlist?id=${item.id}`);
+    // if (existing.data.length > 0) {
+    //   console.log('Already in wishlist');
+    //   return;
+    // }
 
     // Add to wishlist
     const res = await axios.post("http://localhost:4001/wishlist", {
