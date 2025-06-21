@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
+
 
 import { useState } from 'react';
+import axios from 'axios';
 
 function Login() {
     const {
@@ -12,8 +15,24 @@ function Login() {
     } = useForm()
 
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log(data);
+
+        const userInfo = {
+            email: data.email,
+            password: data.password
+        }
+    await axios.post("http://localhost:4001/user/login",userInfo)
+.then((res)=>{
+      console.log(res.data)
+      if(res.data){
+        toast.success('login successfull');
+        localStorage.setItem("Users",JSON.stringify(res.data))
+      }
+    }).catch((err)=>{
+      console.log(err.message);
+      toast.error('This is an error!',err);
+    })
 
     };
 
@@ -44,36 +63,37 @@ function Login() {
                                 aria-invalid={errors.email ? "true" : "false"}
                             />
                             {errors.password && (
-        <p className="text-pink-600">{errors.email.message}</p>
-    )}
+                                <p className="text-pink-600">{errors.email.message}</p>
+                            )}
                         </div>
 
                         {/* Password */}
-                       <div className="flex flex-col mb-4">
-    <label htmlFor="password">Enter Password</label>
-    <input
-        type="password"
-        id="password"
-        {...register("password", {
-            required: "Password is required",
-            minLength: {
-                value: 8,
-                message: "Minimum 8 letters"
-            }
-        })}
-        className="bg-[#e8bad0] text-black rounded-md p-2"
-        aria-invalid={errors.password ? "true" : "false"}
-    />
+                        <div className="flex flex-col mb-4">
+                            <label htmlFor="password">Enter Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                {...register("password", {
+                                    required: "Password is required",
+                                    minLength: {
+                                        value: 8,
+                                        message: "Minimum 8 letters"
+                                    }
+                                })}
+                                className="bg-[#e8bad0] text-black rounded-md p-2"
+                                aria-invalid={errors.password ? "true" : "false"}
+                            />
 
-    {errors.password && (
-        <p className="text-pink-600">{errors.password.message}</p>
-    )}
-</div>
+                            {errors.password && (
+                                <p className="text-pink-600">{errors.password.message}</p>
+                            )}
+                        </div>
 
 
                         {/* Submit & Link */}
                         <div className="flex justify-around m-5 items-center">
-                            <button
+                            <button     onClick={() => document.getElementById('my_modal_3').close()}
+
                                 type="submit"
                                 className="btn btn-ghost text-xl bg-[#e8bad0] text-black"
                             >

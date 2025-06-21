@@ -7,6 +7,7 @@ import Signup from './component/Signup';
 import Contact from './component/Contact';
 import About from './component/About';
 import Wish from './component/Wish';
+import  { Toaster } from 'react-hot-toast';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,7 +21,10 @@ function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/wish" element={<Wish />} />
+        
       </Routes>
+
+      <Toaster />
     </BrowserRouter>
   )
 }

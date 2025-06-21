@@ -6,7 +6,7 @@ const PORT =process.env.PORT || 3000
 const URI = process.env.MONGODBURI
 import bookRoute from '../backend/route/book.route.js'
 import cors from 'cors'
-import wishlistRoute from './route/wishlist.route.js';
+
 import userRoute from '../backend/route/user.route.js';
 
 
@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.json())
 //defining routes 
 app.use("/book",bookRoute)
-app.use('/wishlist', wishlistRoute);
+
 app.use("/user", userRoute)
 
 // app.use(cors());
